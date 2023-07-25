@@ -1,0 +1,24 @@
+{
+  "name": "dynamic-load-balancing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:consul": "consul agent -dev",
+    "start:proxy": "forever start load-balancer.js",
+    "start:api": "forever start --killSignal=SIGINT server.js api-service",
+    "start:web": "forever start --killSignal=SIGINT app.js webapp-service"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "consul": "^1.2.0",
+    "http-proxy": "^1.18.1",
+    "nanoid": "^4.0.2",
+    "portfinder": "^1.0.32"
+  }
+}
